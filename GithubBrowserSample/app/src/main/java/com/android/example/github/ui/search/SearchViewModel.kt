@@ -17,19 +17,15 @@
 package com.android.example.github.ui.search
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.switchMap
 import com.android.example.github.repository.RepoRepository
 import com.android.example.github.testing.OpenForTesting
 import com.android.example.github.util.AbsentLiveData
 import com.android.example.github.vo.Repo
 import com.android.example.github.vo.Resource
 import com.android.example.github.vo.Status
-import java.util.Locale
-import javax.inject.Inject
+import java.util.*
 
 @OpenForTesting
 class SearchViewModel @ViewModelInject constructor(repoRepository: RepoRepository) : ViewModel() {

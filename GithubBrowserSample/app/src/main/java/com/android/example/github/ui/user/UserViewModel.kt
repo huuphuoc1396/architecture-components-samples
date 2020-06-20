@@ -28,7 +28,6 @@ import com.android.example.github.util.AbsentLiveData
 import com.android.example.github.vo.Repo
 import com.android.example.github.vo.Resource
 import com.android.example.github.vo.User
-import javax.inject.Inject
 
 @OpenForTesting
 class UserViewModel
