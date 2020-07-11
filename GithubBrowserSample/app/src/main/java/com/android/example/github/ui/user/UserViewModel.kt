@@ -27,11 +27,12 @@ import com.android.example.github.util.AbsentLiveData
 import com.android.example.github.vo.Repo
 import com.android.example.github.vo.Resource
 import com.android.example.github.vo.User
-import javax.inject.Inject
 
 @OpenForTesting
-class UserViewModel
-@Inject constructor(userRepository: UserRepository, repoRepository: RepoRepository) : ViewModel() {
+class UserViewModel constructor(
+    userRepository: UserRepository,
+    repoRepository: RepoRepository
+) : ViewModel() {
     private val _login = MutableLiveData<String?>()
     val login: LiveData<String?>
         get() = _login

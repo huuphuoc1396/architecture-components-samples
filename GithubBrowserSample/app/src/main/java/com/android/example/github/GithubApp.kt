@@ -16,26 +16,28 @@
 
 package com.android.example.github
 
-import android.app.Activity
 import android.app.Application
-import com.android.example.github.di.AppInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import com.android.example.github.di.appModule
+import com.android.example.github.di.repositoryModule
+import com.android.example.github.di.viewModelModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import timber.log.Timber
-import javax.inject.Inject
 
-
-class GithubApp : Application(), HasActivityInjector {
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+class GithubApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-        AppInjector.init(this)
-    }
 
-    override fun activityInjector() = dispatchingAndroidInjector
+        startKoin {
+            androidLogger(Level.DEBUG)
+            androidContext(this@GithubApp)
+            modules(appModule, repositoryModule, viewModelModule)
+        }
+    }
 }
