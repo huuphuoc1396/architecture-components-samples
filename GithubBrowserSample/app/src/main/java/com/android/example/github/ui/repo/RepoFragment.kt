@@ -24,9 +24,7 @@ import androidx.core.view.doOnPreDraw
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -35,25 +33,19 @@ import com.android.example.github.AppExecutors
 import com.android.example.github.R
 import com.android.example.github.binding.FragmentDataBindingComponent
 import com.android.example.github.databinding.RepoFragmentBinding
-import com.android.example.github.di.Injectable
 import com.android.example.github.ui.common.RetryCallback
 import com.android.example.github.util.autoCleared
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * The UI Controller for displaying a Github Repo's information with its contributors.
  */
-class RepoFragment : Fragment(), Injectable {
+class RepoFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+    val repoViewModel: RepoViewModel by viewModel()
 
-    val repoViewModel: RepoViewModel by viewModels {
-        viewModelFactory
-    }
-
-    @Inject
-    lateinit var appExecutors: AppExecutors
+    val appExecutors: AppExecutors by inject()
 
     // mutable for testing
     var dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)

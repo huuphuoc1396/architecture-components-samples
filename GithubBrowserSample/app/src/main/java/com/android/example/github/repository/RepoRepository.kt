@@ -32,8 +32,6 @@ import com.android.example.github.vo.Repo
 import com.android.example.github.vo.RepoSearchResult
 import com.android.example.github.vo.Resource
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Repository that handles Repo instances.
@@ -42,9 +40,8 @@ import javax.inject.Singleton
  * Repo - value object name
  * Repository - type of this class.
  */
-@Singleton
 @OpenForTesting
-class RepoRepository @Inject constructor(
+class RepoRepository constructor(
     private val appExecutors: AppExecutors,
     private val db: GithubDb,
     private val repoDao: RepoDao,

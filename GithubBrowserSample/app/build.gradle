@@ -85,17 +85,12 @@ dependencies {
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
     implementation deps.glide.runtime
-
-    implementation deps.dagger.runtime
-    implementation deps.dagger.android
-    implementation deps.dagger.android_support
+    
     implementation deps.constraint_layout
     implementation deps.kotlin.stdlib
 
     implementation deps.timber
 
-    kapt deps.dagger.android_support_compiler
-    kapt deps.dagger.compiler
     kapt deps.room.compiler
     kapt deps.lifecycle.compiler
 
@@ -120,6 +115,10 @@ dependencies {
     androidTestImplementation deps.arch_core.testing
     androidTestImplementation deps.mockito.core
     androidTestImplementation deps.mockito.android
+
+    implementation(deps.koin.android)
+    implementation(deps.koin.android_scope)
+    implementation(deps.koin.android_viewmodel)
 }
 
 // we need all open to run tests which we enable only for debug builds.

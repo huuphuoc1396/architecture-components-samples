@@ -23,15 +23,12 @@ import com.android.example.github.db.UserDao
 import com.android.example.github.testing.OpenForTesting
 import com.android.example.github.vo.Resource
 import com.android.example.github.vo.User
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Repository that handles User objects.
  */
 @OpenForTesting
-@Singleton
-class UserRepository @Inject constructor(
+class UserRepository constructor(
     private val appExecutors: AppExecutors,
     private val userDao: UserDao,
     private val githubService: GithubService

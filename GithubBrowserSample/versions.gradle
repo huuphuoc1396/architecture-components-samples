@@ -63,6 +63,7 @@ versions.timber = "4.7.1"
 versions.transition = "1.3.0"
 versions.truth = "1.0.1"
 versions.work = "2.2.0"
+versions.koin_version= "2.1.6"
 ext.versions = versions
 
 def build_versions = [:]
@@ -215,6 +216,15 @@ work.testing = "androidx.work:work-testing:$versions.work"
 work.firebase = "androidx.work:work-firebase:$versions.work"
 work.runtime_ktx = "androidx.work:work-runtime-ktx:$versions.work"
 deps.work = work
+
+def koin = [:]
+// Koin for Android
+koin.android = "org.koin:koin-android:$versions.koin_version"
+// Koin Android Scope feature
+koin.android_scope = "org.koin:koin-android-scope:$versions.koin_version"
+// Koin Android ViewModel feature
+koin.android_viewmodel = "org.koin:koin-android-viewmodel:$versions.koin_version"
+deps.koin = koin
 
 ext.deps = deps
 
